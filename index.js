@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const http = require("http");
+const swaggerUi = require("swagger-ui-express");
 
 // Creating the node server
 const app = express();
@@ -13,9 +14,17 @@ app.server = http.createServer(app);
 var jsonParser = bodyParser.json();
 app.use(jsonParser);
 
+//Swaggger 
+const swaggerDocument = require("./config/config.json");
+app.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Define Router 
+const apiRoutes = require("./routes/index");
+app.use('/api', apiRoutes);
 
 //Db connectivity
 const db = require("./models/index");
+const res = require("express/lib/response");
 db.mongoose.connect(db.url, {
     useNewUrlParser: true,
     useUnifiedTopology: true

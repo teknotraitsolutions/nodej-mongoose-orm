@@ -1,0 +1,46 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API Documentation",
+        "version": "1.0.0",
+        "title": "Backend API Documentation"
+    },
+    "servers": ["http://localhost:3000"],
+    "basePath": "/api",
+    "schemas": ["http", "htpps"],
+    "paths": {
+        "/user/register": {
+            "post": {
+                "tags": ["User"],
+                "summary": "To register a new user",
+                "description": "",
+                "operationId": "To register a new user",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "To register a new user parameters",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Register"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        }
+    }
+}
