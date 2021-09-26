@@ -7,8 +7,11 @@ router.get("/health", (req, res) => {
 
 //Include routes
 const userRoutes = require("./userRoute");
-
+const examRoutes = require("./examRoute");
+const testAPIRoutes = require("./testAPIRoute");
 
 router.use('/user', userRoutes);
+router.use('/exam', examRoutes);
+router.use('/testAPI', testAPIRoutes);
 
 module.exports = router;

@@ -41,6 +41,478 @@
                     "api_key": []
                 }]
             }
+        },
+        "/user/login": {
+            "post": {
+                "tags": ["User"],
+                "summary": "Login user",
+                "description": "",
+                "operationId": "Login",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Login parameters",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Login"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/exam/addExam": {
+            "post": {
+                "tags": ["Exam"],
+                "summary": "To add a new exam details",
+                "description": "",
+                "operationId": "AddExam",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Add Exam parameters",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/addExam"
+                    }
+                }, {
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/exam/getExam/{exam_id}": {
+            "get": {
+                "tags": ["Exam"],
+                "summary": "To get exam details",
+                "description": "",
+                "operationId": "getExam",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }, {
+                    "in": "path",
+                    "name": "exam_id",
+                    "description": "Exam Id"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/exam/updateExam/{exam_id}": {
+            "put": {
+                "tags": ["Exam"],
+                "summary": "To update exam details",
+                "description": "",
+                "operationId": "updateExam",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Update Exam parameters",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/updateExam"
+                    }
+                }, {
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }, {
+                    "in": "path",
+                    "name": "exam_id",
+                    "description": "Exam Id",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/exam/deleteExam/{exam_id}": {
+            "delete": {
+                "tags": ["Exam"],
+                "summary": "To delete the exam",
+                "description": "",
+                "operationId": "deleteExam",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "path",
+                    "name": "exam_id",
+                    "description": "Exam Id",
+                    "required": true
+                }, {
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/exam/getExamQuestions/{exam_id}": {
+            "get": {
+                "tags": ["Exam"],
+                "summary": "To get all questions by exam id",
+                "description": "",
+                "operationId": "getExamQuestion",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "path",
+                    "name": "exam_id",
+                    "description": "Exam Id",
+                    "required": true
+                }, {
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/testAPI/product": {
+            "post": {
+                "tags": ["Product"],
+                "summary": "Add Product",
+                "description": "",
+                "operationId": "AddProduct",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Add Product parameters",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/AddProduct"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/testAPI/review/{product_id}": {
+            "post": {
+                "tags": ["Review"],
+                "summary": "Add Review",
+                "description": "",
+                "operationId": "AddReview",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "path",
+                    "name": "product_id",
+                    "description": "product Id",
+                    "required": true
+                }, {
+                    "in": "body",
+                    "name": "body",
+                    "description": "Add Review parameters",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/AddReview"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/testAPI/getProductDetails/{product_id}": {
+            "get": {
+                "tags": ["Product"],
+                "summary": "Get Product Details",
+                "description": "",
+                "operationId": "GetProduct",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "path",
+                    "name": "product_id",
+                    "description": "product Id",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/testAPI/color": {
+            "post": {
+                "tags": ["Color"],
+                "summary": "Add Color",
+                "description": "",
+                "operationId": "AddColor",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Add Color parameters",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/AddColor"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "api_key": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "Register": {
+            "type": "object",
+            "properties": {
+                "first_name": {
+                    "type": "string",
+                    "example": "Dharmendra"
+                },
+                "last_name": {
+                    "type": "string",
+                    "example": "Patel"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "dharmendra@gmail.com"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "Abcd@1234"
+                }
+            }
+        },
+        "Login": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "example": "dharmendra@gmail.com"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "Abcd@1234"
+                }
+            }
+        },
+        "addExam": {
+            "type": "object",
+            "properties": {
+                "exam_name": {
+                    "type": "string",
+                    "example": "test"
+                }
+            }
+        },
+        "updateExam": {
+            "type": "object",
+            "properties": {
+                "exam_name": {
+                    "type": "string",
+                    "example": "test"
+                }
+            }
+        },
+        "AddProduct": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "Soda"
+                },
+                "quantity": {
+                    "type": "string",
+                    "example": "12"
+                },
+                "deparments": {
+                    "type": "array",
+                    "example": ["Beverages", "Checkout"]
+                }
+            }
+        },
+        "AddReview": {
+            "type": "object",
+            "properties": {
+                "stars": {
+                    "type": "string",
+                    "example": "4"
+                },
+                "review": {
+                    "type": "string",
+                    "example": "Soda was good"
+                }
+            }
+        },
+        "AddColor": {
+            "type": "object",
+            "properties": {
+                "color": {
+                    "type": "string",
+                    "example": "blue"
+                }
+            }
+        },
+        "ApiResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
         }
     }
 }
